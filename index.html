@@ -63,14 +63,14 @@
       <ul id="all-tasks" 
           ng-show="currentList === 'all'">
         <h2>All Tasks</h2>
-        <!-- ng-repeat="task in myTasks"> -->
+            <!-- ng-repeat="(id, task) in myTasks"> -->
         <li class="todo" 
             ng-class="{complete: task.complete, incomplete: !task.complete}"
-            ng-repeat="(id, task) in myTasks">
+            ng-repeat="task in myTasks">
           <input type="checkbox" ng-model="task.complete">
           <span>{{task.description}}</span>
-          <!-- <button ng-click="deleteTask(task)">Delete</button> -->
-          <button ng-click="deleteTask(id)">Delete</button>
+          <button ng-click="deleteTask(task)">Delete</button>
+          <!-- <button ng-click="deleteTask(id)">Delete</button> -->
           <!-- {{task}} -->
         </li>
       </ul>
@@ -78,10 +78,10 @@
       <ul id="complete-tasks" 
           ng-show="currentList === 'complete'">
         <h2>Completed Tasks</h2>
-        <!-- <li class="todo complete" ng-repeat="task in myTasks | filter:{complete:true}"> -->
-        <li class="todo complete" 
+        <li class="todo complete" ng-repeat="task in myTasks | filter:{complete:true}">
+<!--         <li class="todo complete" 
             ng-class="{complete: task.complete}"
-            ng-repeat="(id, task) in myTasks | filter:{complete:true}">
+            ng-repeat="(id, task) in myTasks | filter:{complete:true}"> -->
           <input type="checkbox" ng-model="task.complete">
           <span>{{task.description}}</span>
           <button ng-click="deleteTask(task)">Delete</button>
@@ -92,10 +92,10 @@
       <ul id="incomplete-tasks" 
           ng-show="currentList === 'incomplete'">
         <h2>Incomplete Tasks</h2>
-        <!-- <li class="todo incomplete" ng-repeat="task in myTasks | filter:{complete:false}"> -->
-        <li class="todo incomplete" 
+        <li class="todo incomplete" ng-repeat="task in myTasks | filter:{complete:false}">
+<!--         <li class="todo incomplete" 
             ng-class="{incomplete: !task.complete}"
-            ng-repeat="(id, task) in myTasks | filter:{complete:false}">
+            ng-repeat="(id, task) in myTasks | filter:{complete:false}"> -->
           <input type="checkbox" ng-model="task.complete">
           <span>{{task.description}}</span>
           <button ng-click="deleteTask(task)">Delete</button>
@@ -106,8 +106,8 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
-    <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+<!--     <script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script> -->
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 

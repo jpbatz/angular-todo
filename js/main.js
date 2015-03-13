@@ -1,10 +1,12 @@
 // Create angular application
-var app = angular.module('TodoApp', ['firebase']); // [] module dependencies from index.html
+// var app = angular.module('TodoApp', ['firebase']); // [] module dependencies from index.html
+var app = angular.module('TodoApp', []); // [] module dependencies from index.html
 
 // Create a new controller for the todo input field
-app.controller('TodoController', function($scope, $firebaseArray) {
+// app.controller('TodoController', function($scope, $firebaseArray) {
+app.controller('TodoController', function($scope) {
 
-  var ref = new Firebase('https://todos-angular.firebaseio.com/');
+  // var ref = new Firebase('https://todos-angular.firebaseio.com/');
 
 
   // $scope.coolVariable = "COOL GUY";
@@ -12,7 +14,8 @@ app.controller('TodoController', function($scope, $firebaseArray) {
   // create input variable
   $scope.myInput = "";
 
-  $scope.myTasks = $firebaseArray(ref);
+  // $scope.myTasks = $firebaseArray(ref);
+  $scope.myTasks = [];
 
   // all, complete, and incomplete
   $scope.currentList = "all";
@@ -35,8 +38,8 @@ app.controller('TodoController', function($scope, $firebaseArray) {
     var newTask  = new Task(description);
 
     // store in the Tasks array
-    // $scope.myTasks.push(newTask);
-    $scope.myTasks.$add(newTask);
+    $scope.myTasks.push(newTask);
+    // $scope.myTasks.$add(newTask);
 
     // clear out input field
     $scope.myInput = "";
@@ -56,11 +59,11 @@ app.controller('TodoController', function($scope, $firebaseArray) {
    * Removes a task from the array
    * @param  {[Task]}  task  the task to remove
    */
-  // $scope.deleteTask = function(task) {
-  $scope.deleteTask = function(taskId) {
-    // var taskIndex = $scope.myTasks.indexOf(task);
-    // $scope.myTasks.splice(taskIndex, 1);
-    $scope.myTasks.$remove(taskId);
+  $scope.deleteTask = function(task) {
+  // $scope.deleteTask = function(taskId) {
+    var taskIndex = $scope.myTasks.indexOf(task);
+    $scope.myTasks.splice(taskIndex, 1);
+    // $scope.myTasks.$remove(taskId);
   };
 
 });
