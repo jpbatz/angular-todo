@@ -1,0 +1,18 @@
+
+body {
+  background-color: papayaWhip;
+  align: center;
+}
+
+.complete {
+  color: green;
+  text-decoration: line-through;
+}
+
+.incomplete {
+  color: red;
+}
+
+#all-tasks {
+  color: black;
+}
